@@ -18,7 +18,7 @@ canvas {
   transform: rotateY(180deg);
 }
 
-p {
+#nocam {
   position: fixed;
   font-size: 1.5rem;
   top: 50vh;

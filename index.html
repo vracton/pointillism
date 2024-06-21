@@ -9,9 +9,18 @@
 </head>
 
 <body>
-  <p>You must allow camera access for this program to work.</p>
+  <p id="nocam">You must allow camera access for this program to work.</p>
+  <div style="z-index: 99 !important;position: absolute;">
+    <select id="mode">
+      <option value="n">normal</option>
+      <option value="g">grayscale</option>
+    </select>
+    <input oninput="document.getElementById('size').innerHTML='<b>size: </b>'+ this.value" type="range" min="10" max="100" value="22" step="2" id="ptSize">
+    <p id ="size"><b>size: </b>22</p>
+  </div>
   <video autoplay></video>
   <canvas></canvas>
+  
   <div id="status"></div><br>
 <div id="color" style="width:30px;height:30px;"></div>
 

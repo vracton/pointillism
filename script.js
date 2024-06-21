@@ -67,7 +67,7 @@ stream.getTracks().forEach(function(track) {
   //track.stop();
 });
 //video.remove()
-const size = 22
+const size = document.getElementById('ptSize').value
 for (j=0;j<=canvas.height;j+=size/2){
   for (let i = 0; i<= canvas.width;i+=size/2){
   var eventLocation = getEventLocation(canvas,{pageX:i,pageY:j});
@@ -75,16 +75,16 @@ for (j=0;j<=canvas.height;j+=size/2){
 eventLocation.x = i
   eventLocation.y = j
   var context = canvas.getContext('2d');
-  var pixelData = context.getImageData(i, j, 1, 1).data; 
-  
-  var hex = "#" + ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(-6);
+  var pixelData = context.getImageData(i, j, 1, 1).data;
+  const hsl = "hsl(0 0 "+(Math.pow(pixelData[0]/255,2.2)*0.299+Math.pow(pixelData[1]/255,2.2)*0.587+Math.pow(pixelData[2]/255,2.2)*0.114)*100+"%)"
+  const hex = "#" + ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(-6);
   
 const ctx = canvas.getContext("2d")
   ctx.beginPath(); // begin
 
 ctx.lineWidth = size;
 ctx.lineCap = 'round';
-ctx.strokeStyle = hex;
+ctx.strokeStyle = document.getElementById('mode').value=="n"?hex:hsl;
 
 ctx.moveTo(eventLocation.x, eventLocation.y); // from
 ctx.lineTo(eventLocation.x, eventLocation.y); // to
