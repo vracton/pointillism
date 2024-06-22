@@ -10,14 +10,15 @@
 
 <body>
   <p id="nocam">You must allow camera access for this program to work.</p>
-  <div style="z-index: 99 !important;position: absolute;">
+  <button id="take" title="Take Portrait">Save</button>
+  <div style="z-index: 99 !important;" id="settings">
     <select id="mode">
       <option value="n">normal</option>
       <option value="g">grayscale</option>
     </select>
-    <input type="color" value="#000000" id="clrShift"></input>
-    <input oninput="document.getElementById('size').innerHTML='<b>size: </b>'+ this.value" type="range" min="10" max="100" value="22" step="2" id="ptSize">
-    <p id ="size"><b>size: </b>22</p>
+    <input type="color" value="#000000" id="clrShift"></input></br>
+    <input oninput="document.getElementById('size').innerHTML='<b>size: </b>'+ this.value" type="range" min="10" max="100" value="30" step="2" id="ptSize">
+    <p id ="size"><b>size: </b>30</p>
   </div>
   <video autoplay></video>
   <canvas></canvas>
